@@ -1,18 +1,34 @@
 ///////////////Menu Items (MVP)///////////////////
 
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch"};
+const burger = {name: "Burger", price: 18, category: "Lunch", discount: function(string){
+  if(string == "Teacher" || string == "Student") {
+    console.log(`The discount for a ${string} is ${this.price * .75}`)
+  } else if (string == "Bob") {
+    console.log(`The general discount for you is ${this.price * .9}`)
+  }
+}};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, cost, category){
-    /* Code here */
+    return {name, cost, category}  
+  // const newItem = {
+    //   name: name,
+    //   cost: cost,
+    //   category: category
+    // }
+    // console.log(newItem);
 }
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
-
-
+// console.log(createMenuItem("French Fries", 3, "Side"))
+// console.log(createMenuItem("Chips", 3, "Side"))
+// console.log(createMenuItem("Mozz Sticks", 3, "Side"))
+// console.log(createMenuItem("Mashed Potatoes", 3, "Side"))
+burger.discount('Teacher');
+burger.discount("Bob");
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
 
